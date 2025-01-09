@@ -1,0 +1,15 @@
+{
+  "$schema": "https://codemod-utils.s3.us-west-1.amazonaws.com/configuration_schema.json",
+  "name": "poulet42/declare-ts-services",
+  "version": "1.0.0",
+  "engine": "jscodeshift",
+  "private": false,
+  "arguments": [],
+  "meta": {
+    "tags": [
+      "ember",
+      "typescript"
+    ],
+    "git": "https://github.com/poulet42/my-codemods.git"
+  }
+}

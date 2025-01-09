@@ -1,5 +1,5 @@
 {
-  "name": "example-codemod",
+  "name": "@poulet42/declare-ts-services",
   "license": "MIT",
   "devDependencies": {
     "@types/node": "20.9.0",
@@ -18,6 +18,5 @@
     ".codemodrc.json",
     "/dist/index.cjs"
   ],
-  "type": "module",
-  "author": "mohab-sameh"
+  "type": "module"
 }
