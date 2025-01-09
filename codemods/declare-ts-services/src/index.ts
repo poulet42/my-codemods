@@ -142,7 +142,7 @@ const transform: Transform = (fileInfo, api) => {
     });
 
   console.log("Transformation complete for file:", fileInfo.path);
-  return root.toSource().replace(/\n\s+declare/g, " declare");
+  return root.toSource().replace(/@service\n\s+declare/g, "@service declare");
 };
 
 export default transform;

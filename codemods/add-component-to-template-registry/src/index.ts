@@ -51,7 +51,11 @@ declare module '@glint/environment-ember-loose/registry' {
 }`;
 
   // Check if the registry declaration already exists in the file
-  if (fileInfo.source.includes(registryDeclaration.trim())) {
+  if (
+    fileInfo.source.includes(
+      `declare module '@glint/environment-ember-loose/registry' {`
+    )
+  ) {
     return fileInfo.source; // No need to add if already present
   }
 
