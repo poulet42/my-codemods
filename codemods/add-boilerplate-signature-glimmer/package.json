@@ -1,0 +1,24 @@
+{
+  "name": "@poulet42/add-boilerplate-signature-glimmer",
+  "license": "MIT",
+  "devDependencies": {
+    "@types/node": "20.9.0",
+    "typescript": "^5.2.2",
+    "vitest": "^1.0.1",
+    "@codemod.com/codemod-utils": "*",
+    "jscodeshift": "^0.15.1",
+    "@types/jscodeshift": "^0.11.10"
+  },
+  "scripts": {
+    "test": "vitest run",
+    "test:watch": "vitest watch"
+  },
+  "files": [
+    "README.md",
+    ".codemodrc.json",
+    "/dist/index.cjs"
+  ],
+  "type": "module",
+  "author": "poulet42",
+  "packageManager": "pnpm@9.15.3+sha512.1f79bc245a66eb0b07c5d4d83131240774642caaa86ef7d0434ab47c0d16f66b04e21e0c086eb61e62c77efc4d7f7ec071afad3796af64892fae66509173893a"
+}
