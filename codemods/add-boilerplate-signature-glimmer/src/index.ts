@@ -47,7 +47,7 @@ export default function transformer(
       return;
     }
 
-    console.log("Processing class:", className);
+    console.log("Processing class name:", className);
 
     // Check if the class already has a generic argument in `Component`
     const superClass = path.node.superClass;
