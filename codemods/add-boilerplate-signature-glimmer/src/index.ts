@@ -49,6 +49,32 @@ export default function transformer(
 
     console.log("Processing class:", className);
 
+    // Check if the class already has a generic argument in `Component`
+    const superClass = path.node.superClass;
+    if (
+      superClass &&
+      superClass.type === "TSExpressionWithTypeArguments" &&
+      superClass.typeParameters
+    ) {
+      console.log(
+        "Component already has a generic parameter, skipping class:",
+        className
+      );
+      return;
+    }
+
+    if (
+      superClass &&
+      superClass.type === "Identifier" &&
+      (path.node as any).superTypeParameters // Handles the `superTypeParameters`
+    ) {
+      console.log(
+        "Component already has a generic parameter (via superTypeParameters), skipping class:",
+        className
+      );
+      return;
+    }
+
     // Create the interface name
     const interfaceName = getInterfaceName(className);
 
@@ -107,23 +133,11 @@ export default function transformer(
     }
 
     // Add the interface as a generic argument to `Component`
-    const superClass = path.node.superClass;
     if (
       superClass &&
       superClass.type === "Identifier" &&
       superClass.name === "Component"
     ) {
-      // Check if there's already a generic parameter in Component
-      if (
-        path.node.superClass.type === "TSExpressionWithTypeArguments" &&
-        path.node.superClass.typeParameters
-      ) {
-        console.log(
-          "Component already has a generic parameter, skipping modification"
-        );
-        return;
-      }
-
       console.log("Adding generic argument to Component for class:", className);
       path.node.superClass = j.tsExpressionWithTypeArguments(
         j.identifier("Component"),
